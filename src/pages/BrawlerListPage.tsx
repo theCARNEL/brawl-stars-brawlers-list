@@ -1,10 +1,24 @@
-// src/pages/BrawlerListPage.tsx
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header.tsx";
 import BrawlerList from "../components/BrawlerList.tsx";
 import Footer from "../components/Footer.tsx";
 
-function BrawlerListPage({ allBrawlers }) {
+interface Rarity {
+  id: number;
+  name: string;
+}
+interface Brawler {
+  id: number;
+  name: string;
+  rarity: Rarity;
+  [key: string]: any;
+}
+
+interface BrawlerListPageProps {
+  allBrawlers: Brawler[];
+}
+
+const BrawlerListPage: React.FC<BrawlerListPageProps> = ({ allBrawlers }) => {
   const [filteredBrawlers, setFilteredBrawlers] = useState(allBrawlers);
   const [isLoading, setIsLoading] = useState(allBrawlers.length === 0);
   const [sortCriterion, setSortCriterion] = useState("NAME_ASC");
@@ -17,7 +31,11 @@ function BrawlerListPage({ allBrawlers }) {
     }
   }, [allBrawlers]);
 
-  const applyAllLogic = (brawlerList, criterion, query) => {
+  const applyAllLogic = (
+    brawlerList: Brawler[],
+    criterion: string,
+    query: string
+  ): void => {
     // 1. Filtering
     let processedList = brawlerList;
     if (query !== "") {
@@ -44,13 +62,12 @@ function BrawlerListPage({ allBrawlers }) {
     setFilteredBrawlers(sortedList);
   };
 
-  // --- Handlers ---
-  const handleSearch = (query) => {
+  const handleSearch = (query: string): void => {
     setSearchQuery(query);
     applyAllLogic(allBrawlers, sortCriterion, query);
   };
 
-  const handleSortChange = (newCriterion) => {
+  const handleSortChange = (newCriterion: string): void => {
     setSortCriterion(newCriterion);
     applyAllLogic(allBrawlers, newCriterion, searchQuery);
   };
@@ -65,7 +82,7 @@ function BrawlerListPage({ allBrawlers }) {
       <div className="header-banner"></div>
       <main>
         {isLoading ? (
-          <div id="loading">Memuat data Brawler...</div>
+          <div id="loading">Loading Data...</div>
         ) : (
           <BrawlerList brawlers={filteredBrawlers} />
         )}
@@ -73,6 +90,6 @@ function BrawlerListPage({ allBrawlers }) {
       <Footer />
     </>
   );
-}
+};
 
 export default BrawlerListPage;
