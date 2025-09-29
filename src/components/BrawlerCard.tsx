@@ -2,16 +2,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// Interface minimal brawler untuk komponen ini
 interface Brawler {
   id: number;
   name: string;
   rarity: { id: number; name: string };
-  // Tambahkan properti lain yang digunakan
 }
 
 interface BrawlerCardProps {
-  brawler: Brawler; // Tipe Prop yang Eksplisit
+  brawler: Brawler;
 }
 
 const BrawlerCard: React.FC<BrawlerCardProps> = ({ brawler }) => {
@@ -20,7 +18,6 @@ const BrawlerCard: React.FC<BrawlerCardProps> = ({ brawler }) => {
   }
 
   const rarityId = brawler.rarity.id;
-  // FIX: Gunakan fungsi sanitasi yang aman untuk URL dan nama file
   const sanitizedName = brawler.name
     .toLowerCase()
     .replace(/ /g, "-")
@@ -28,7 +25,6 @@ const BrawlerCard: React.FC<BrawlerCardProps> = ({ brawler }) => {
   const imageUrl = `assets/brawlers/${sanitizedName}.png`;
 
   return (
-    // FIX: Gunakan nama yang sudah di-sanitasi untuk URL
     <Link to={`/brawler/${sanitizedName}`}>
       <div className="brawler-card" data-rarity={rarityId}>
         <img src={imageUrl} alt={brawler.name}></img>

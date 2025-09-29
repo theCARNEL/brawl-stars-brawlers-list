@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BrawlerListPage from "./pages/BrawlerListPage.tsx";
 import BrawlerDetailPage from "./pages/BrawlerDetailPage.tsx";
@@ -12,14 +12,12 @@ function App() {
       try {
         const response = await fetch("/brawlers.json");
 
-        // Tambahkan cek ini untuk memastikan respons berhasil
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const data = await response.json();
 
-        // Tambahkan log untuk melihat data apa yang dimuat
         console.log("Data loaded:", data);
 
         if (data.items && Array.isArray(data.items)) {
