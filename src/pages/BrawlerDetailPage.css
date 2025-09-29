@@ -1,6 +1,6 @@
 /* Font */
 @font-face {
-    font-family: 'BrawlStarsFont';
+    font-family: 'Lilita One';
     src: url('assets/fonts/LilitaOne-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
@@ -50,7 +50,7 @@
 }
 
 .brawler-detail-col-right .section-title{
-    font-family: 'BrawlStarsFont', cursive;
+    font-family: 'Lilita One', cursive;
     text-align: left;
     text-transform: uppercase;
     color: #ffffff;
@@ -167,7 +167,7 @@
 }
 
 .brawler-description {
-    font-family: "BrawlStarsFont", sans-serif;
+    font-family: "Lilita One", sans-serif;
     font-size: 1.2em;
     color: white;
     line-height: 1.5;
@@ -197,7 +197,7 @@
     font-size: 1.1em;
     font-weight: bold;
     margin-bottom: 8px;
-    font-family: 'BrawlStarsFont', sans-serif;
+    font-family: 'Lilita One', sans-serif;
 }
 .stats-grid {
     display: grid;
@@ -351,14 +351,14 @@
     border: 1px solid #444;
 }
 .ability-info h3{
-    font-family: 'BrawlStarsFont', cursive;
+    font-family: 'Lilita One', cursive;
     text-transform: uppercase;
     font-size: 1.2rem;
     color: #fff;
     margin: 0 0 4px 0;
 }
 .ability-info p {
-    font-family: 'BrawlStarsFont', sans-serif;
+    font-family: 'Lilita One', sans-serif;
     font-size: 0.9rem;
     color: #b0b0b5;
     line-height: 1.4;
@@ -391,7 +391,7 @@
     font-weight: bold;
     font-size: 1.05em;
     margin-bottom: 2px;
-    font-family: 'BrawlStarsFont', sans-serif;
+    font-family: 'Lilita One', sans-serif;
 }
 .gadget-description, .starpower-description, .hypercharge-description {
     font-size: 0.98em;
